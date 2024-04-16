@@ -1,0 +1,139 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;    
+    min-width:400px;
+    min-height: 400px;
+    margin-top: 50px;
+    border: black 1px solid;
+    flex-grow: 1;
+}
+
+.box{
+    display: flex;
+    background-color: rgb(170, 148, 50);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    padding-left: 0px;
+    flex-grow:1;
+    flex-shrink: 1;
+    border: solid 1px black;
+    
+    
+}
+
+.box:hover{
+
+    background-color: purple;
+
+
+}
+
+
+.rowBox{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 1;
+    border: black;
+    border-width: 5px;
+}
+
+#test{
+    background-color: cornflowerblue;
+
+}
+
+.classy{
+    background-color: azure;
+}
+.classy:hover{
+    background-color: brown;
+}
+
+.hovered{
+    background-color: red;
+    color: yellow;
+}
+
+.clear{
+   /* width: 50px;
+    height: 20px;*/
+    display: inline-flex;
+}
+
+#main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#leftPanel{
+    display: flex;
+    flex-direction: column;
+}
+
+#colorPanel {
+    display: flex;
+    flex-direction: column;
+    width:200px;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
+.resBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: baseline;
+}
+
+#control{
+    border: black 1px solid;
+    width: 400px;
+
+}
+
+#resolution{
+    max-width: 40px;
+    display: inline-flex;
+    max-height: 1em;
+}
+
+p {
+    display: flex;
+}
+.container {
+    border: solid black 1px;
+}
+
+#colorPicker{
+    display:flex;
+    display: inline;
+}
+
+#pallette{
+    border: black solid 1px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100px;
+    height: 250px;
+}
+
+.colorButton{
+    height: 50px;
+    width: 50px;
+}
+
+#active{
+    width: 45px;
+    height: 45px;
+    border: black solid 1px;
+    margin-bottom: 25px;
+}
+
