@@ -7,6 +7,7 @@ var dimension = "";
 var hovered = ""
 var boxy = ""
 const colorPicker = document.getElementById("colorPicker");
+const grid = document.getElementById("grid");
 active = document.getElementById("active")
 activeValue = active.style.backgroundColor
 active.style.backgroundColor = colorPicker.value;
@@ -46,32 +47,10 @@ function setCanvas() {
         container.appendChild(rowBox.cloneNode(true));
         }
 
-
     boxy = document.querySelectorAll("div.box");
 
-    function change(box) {
-      [].forEach.call(boxy, function(box) {
-        if (box.className === "box") {
-          box.style.backgroundColor= active;
-        }
-      });
-      }
-      
-//.....................................................................................
+//....................................................................
 
-/*function change(el) {
-  [].forEach.call(boxy, function(box) {
-      el.classList.add("hovered");
-  });
-  }
-// the function to add the mouseover event listener to each box
-[].forEach.call(boxy, function(box) {
-box.addEventListener("mouseover", function() {
-change(this, "hovered");
-//console.log(document.getElementsByClassName("hovered").length)
-});
-});
-}*/
 
 function change(el) {
   [].forEach.call(boxy, function(box) {
@@ -84,10 +63,47 @@ function change(el) {
 [].forEach.call(boxy, function(box) {
 box.addEventListener("mouseover", function() {
 change(this);
-//console.log(document.getElementsByClassName("hovered").length)
 });
 });
+
+grid.addEventListener("click", borderize())
+
+// Borderize on initialization
+
+function borderize(){
+  boxy =document.getElementsByClassName("box");
+  [].forEach.call(boxy, function(el){
+    if(grid.checked){
+      el.style.borderStyle = "solid"
+    }
+    else{
+      el.style.borderStyle = "none"
+    }
+  })
+  }
+
 }
+//...........................................................
+//borderize according to toggling checkbox
+
+grid.addEventListener("click", touched)
+
+function touched(){
+  console.log("touched")
+  boxy =document.getElementsByClassName("box");
+  [].forEach.call(boxy, function(el){
+    if(grid.checked){
+      el.style.borderStyle = "solid"
+    }
+    else{
+      el.style.borderStyle = "none"
+    }
+  })
+  
+}
+
+
+
 
 //............................................................................
 
@@ -97,14 +113,14 @@ button.addEventListener("click", setCanvas);
 
 //Resetting the canvas
 clear.addEventListener("click", resetCanvas)
-hovered = document.getElementsByClassName("hovered")
 
-//function to reset canvas
 function resetCanvas(){
-  for (i=0;i=hovered.length; i++){
-    hovered[0].classList.remove("hovered")
+  [].forEach.call(boxy, function(box) {
+    activeValue = active.style.backgroundColor;
+    document.documentElement.style.setProperty('--activeColor', activeValue);
+    box.style.backgroundColor = "#ffffff";
+  });
   }
-}
  
 
 
@@ -175,7 +191,7 @@ function changeColor(){
 }
 
 
-
+ 
 
 
 
