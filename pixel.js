@@ -6,6 +6,11 @@ var rowBox=""
 var dimension = "";
 var hovered = ""
 var boxy = ""
+const colorPicker = document.getElementById("colorPicker");
+active = document.getElementById("active")
+activeValue = active.style.backgroundColor
+active.style.backgroundColor = colorPicker.value;
+document.documentElement.style.setProperty('--activeColor', activeValue);
 //console.log(dimension)
 
 //...................................................................................
@@ -44,23 +49,50 @@ function setCanvas() {
 
     boxy = document.querySelectorAll("div.box");
 
-    // what happens when each box is moused over
-    function change(el) {
-        [].forEach.call(boxy, function(box) {
-          if (box.className === "box") {
-            el.classList.add("hovered");
-          }
-        });
+    function change(box) {
+      [].forEach.call(boxy, function(box) {
+        if (box.className === "box") {
+          box.style.backgroundColor= active;
         }
+      });
+      }
+      
+//.....................................................................................
+
+/*function change(el) {
+  [].forEach.call(boxy, function(box) {
+      el.classList.add("hovered");
+  });
+  }
 // the function to add the mouseover event listener to each box
 [].forEach.call(boxy, function(box) {
 box.addEventListener("mouseover", function() {
-  change(this, "hovered");
-  //console.log(document.getElementsByClassName("hovered").length)
+change(this, "hovered");
+//console.log(document.getElementsByClassName("hovered").length)
+});
+});
+}*/
+
+function change(el) {
+  [].forEach.call(boxy, function(box) {
+    activeValue = active.style.backgroundColor;
+    document.documentElement.style.setProperty('--activeColor', activeValue);
+    el.style.backgroundColor = activeValue;
+  });
+  }
+// the function to add the mouseover event listener to each box
+[].forEach.call(boxy, function(box) {
+box.addEventListener("mouseover", function() {
+change(this);
+//console.log(document.getElementsByClassName("hovered").length)
 });
 });
 }
-//.....................................................................................
+
+//............................................................................
+
+
+
 button.addEventListener("click", setCanvas);
 
 //Resetting the canvas
@@ -88,11 +120,8 @@ colorSeven = document.getElementById("color7");
 colorEight = document.getElementById("color8");
 colorNine = document.getElementById("color9");
 colorTen = document.getElementById("color10");
-active = document.getElementById("active")
 
-colors = ["","","","","","","","","",""]
-
-const colorPicker = document.getElementById("colorPicker");
+colors = ["#000000","","","","","","","","",""]
 
 /*colorPicker.addEventListener("change",(e) => {
   console.log(e.target.value)
@@ -128,6 +157,23 @@ colorTen.style.backgroundColor = colors[9]
   console.log(colors);
   console.log(active.style.backgroundColor);
 }
+
+colorOne.addEventListener("click", changeColor)
+colorTwo.addEventListener("click", changeColor)
+colorThree.addEventListener("click", changeColor)
+colorFour.addEventListener("click", changeColor)
+colorFive.addEventListener("click", changeColor)
+colorSix.addEventListener("click", changeColor)
+colorSeven.addEventListener("click", changeColor)
+colorEight.addEventListener("click", changeColor)
+colorNine.addEventListener("click", changeColor)
+colorTen.addEventListener("click", changeColor)
+
+
+function changeColor(){
+  active.style.backgroundColor = this.style.backgroundColor;
+}
+
 
 
 

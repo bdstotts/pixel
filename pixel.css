@@ -1,3 +1,7 @@
+:root{
+    --activeColor: black;
+}
+
 #container{
     display: flex;
     flex-direction: column;
@@ -12,7 +16,6 @@
 
 .box{
     display: flex;
-    background-color: rgb(170, 148, 50);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -25,12 +28,12 @@
     
 }
 
-.box:hover{
+/*.box:hover{
 
     background-color: purple;
 
 
-}
+}*/
 
 
 .rowBox{
@@ -55,7 +58,7 @@
 }
 
 .hovered{
-    background-color: red;
+    background-color: var(--activeColor);
     color: yellow;
 }
 
