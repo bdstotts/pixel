@@ -2,16 +2,24 @@
     --activeColor: black;
 }
 
-#container{
+#capture{
     display: flex;
     flex-direction: column;
     padding: 0px;
-    margin: 0px;    
-    min-width:400px;
-    min-height: 400px;
-    margin-top: 50px;
-    border: black 1px solid;
+    margin: 3px;    
+    width:400px;
+    height: 400px;
+    margin-top: 0px;
+    border:none;
     flex-grow: 1;
+    
+}
+
+#captureBorder{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
 }
 
 .box{
@@ -102,7 +110,7 @@
 #control{
     border: black 1px solid;
     width: 400px;
-
+    padding-bottom: 10px;
 }
 
 #resolution{
@@ -138,6 +146,7 @@ p {
 }
 
 #active{
+    margin-top: 2em;
     width: 45px;
     height: 45px;
     border: black solid 1px;

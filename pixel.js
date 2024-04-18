@@ -1,4 +1,4 @@
-const container = document.querySelector('#container');
+const capture = document.querySelector('#capture');
 const clear = document.getElementById("clear");
 const button = document.querySelector("button");
 var box = ""
@@ -8,6 +8,7 @@ var hovered = ""
 var boxy = ""
 const colorPicker = document.getElementById("colorPicker");
 const grid = document.getElementById("grid");
+leftPanel = document.getElementById("leftPanel")
 active = document.getElementById("active")
 activeValue = active.style.backgroundColor
 active.style.backgroundColor = colorPicker.value;
@@ -21,6 +22,7 @@ function setCanvas() {
   dimensionNumber = document.getElementById("resolution")
   //dimension = prompt("Enter a number 10-100 to select your etch-a-sketch resolution. Higher means better definition.");
   console.log(dimension)
+
 
   if (dimension>100){
         alert("That number is too high. Your resolution has been set to 100")
@@ -37,14 +39,14 @@ function setCanvas() {
     box.classList.add("box");
     box.textContent = "";
 
-    container.appendChild(rowBox);
+    capture.appendChild(rowBox);
     //create one rowBox filled with boxes
     for(i=0; i<dimension; i++){
         rowBox.appendChild(box.cloneNode(true));
         }
         // clone the rowBox * dimensions
         for(i=0;i<dimension-1; i++){
-        container.appendChild(rowBox.cloneNode(true));
+        capture.appendChild(rowBox.cloneNode(true));
         }
 
     boxy = document.querySelectorAll("div.box");
@@ -62,12 +64,13 @@ function change(el) {
 //..............................................................
 
 // the function to add the mouseover event listener to each box
-/*[].forEach.call(boxy, function(box) {
-box.addEventListener("mouseover", function() {
+[].forEach.call(boxy, function(box) {
+box.addEventListener("mousedown", function() {
 change(this);
 });
 });
-*/
+
+
 [].forEach.call(boxy, function(box) {
 box.addEventListener('mousemove', function(box) {
   if(box.buttons == 1) {
@@ -204,8 +207,30 @@ function changeColor(){
   active.style.backgroundColor = this.style.backgroundColor;
 }
 
+//...........................................................To download source: youtube.come/watch?v=V4dauky6UU8
+download = document.getElementById("download")
 
- 
+const screenshot = ()=>{
+  var element = capture;
+  if(!capture){
+    return;
+  }
+
+html2canvas(capture).then((canvas)=> {
+   let image = canvas.toDataURL("image.jpeg");
+   //console.log("the image is", image);
+   const a = document.createElement("a");
+   a.href = image; 
+   //a.download = "pixel.jpeg";
+   a.download = prompt(`Please enter a filename`)
+   a.click();
+}).catch(err=> {
+  console.log("cannot screenshot now")
+})
+
+}
+
+download.addEventListener("click", screenshot)
 
 
 

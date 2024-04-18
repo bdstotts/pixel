@@ -6,6 +6,7 @@
     <title>Document</title>
    <link rel="stylesheet" href="pixel.css">
    <script src="pixel.js" defer ></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
 </head>
 <body>
@@ -14,17 +15,18 @@
             <div id="control">
                 <div class="resBox">
                     <p>width and height (1-100):</p>
-                    <input id="resolution" type="number" max="100" value="10">
+                    <input id="resolution" type="number" max="100" value="15">
                     <input id = "grid" type="checkbox" value="grid" checked>
                     <label for="grid">Grid</label>
                 </div>
                 <button class="button">Create Drawing Board</button>
                 <button id = "clear">Erase All</button>
-            <input id= "colorPicker" type="color">
+                <button id="download">Download Image</button>
             </div>
-            <div id="container"></div>
+            <div id="capture"></div>
         </div>
         <div class="container" id="colorPanel">
+            <input id= "colorPicker" type="color">
             <div id="active"></div>
             <div id = "pallette">
 <button class="colorButton" id="color1"></button>
