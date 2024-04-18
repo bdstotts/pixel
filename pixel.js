@@ -55,20 +55,34 @@ function setCanvas() {
 function change(el) {
   [].forEach.call(boxy, function(box) {
     activeValue = active.style.backgroundColor;
-    document.documentElement.style.setProperty('--activeColor', activeValue);
+    //document.documentElement.style.setProperty('--activeColor', activeValue);
     el.style.backgroundColor = activeValue;
   });
   }
+//..............................................................
+
 // the function to add the mouseover event listener to each box
-[].forEach.call(boxy, function(box) {
+/*[].forEach.call(boxy, function(box) {
 box.addEventListener("mouseover", function() {
 change(this);
 });
 });
+*/
+[].forEach.call(boxy, function(box) {
+box.addEventListener('mousemove', function(box) {
+  if(box.buttons == 1) {
+   box.preventDefault();
+ change(this);
+ 
+}})
+});
+
+
+
+//..............................................................
+// Borderize on initialization
 
 grid.addEventListener("click", borderize())
-
-// Borderize on initialization
 
 function borderize(){
   boxy =document.getElementsByClassName("box");
