@@ -1,28 +1,31 @@
 :root{
     --activeColor: black;
-}
-
-#capture{
+ }
+ 
+ 
+ #capture{
     display: flex;
     flex-direction: column;
     padding: 0px;
-    margin: 3px;    
+    margin: 3px;   
     width:400px;
     height: 400px;
     margin-top: 0px;
     border:none;
     flex-grow: 1;
-    
-}
-
-#captureBorder{
+   
+ }
+ 
+ 
+ #captureBorder{
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     border: 1px solid black;
-}
-
-.box{
+ }
+ 
+ 
+ .box{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,124 +35,151 @@
     flex-grow:1;
     flex-shrink: 1;
     border:1px black;
-    
-    
-}
-
-/*.box:hover{
-
+    border-radius: 0px;
+   
+   
+ }
+ 
+ 
+ /*.box:hover{
+ 
+ 
     background-color: purple;
-
-
-}*/
-
-
-.rowBox{
+ 
+ 
+ 
+ 
+ }*/
+ 
+ 
+ 
+ 
+ .rowBox{
     display: flex;
     flex-direction: row;
     flex-grow: 1;
     flex-shrink: 1;
     border: black;
     border-width: 5px;
-}
-
-#test{
+ }
+ 
+ 
+ #test{
     background-color: cornflowerblue;
-
-}
-
-.classy{
+ 
+ 
+ }
+ 
+ 
+ .classy{
     background-color: azure;
-}
-.classy:hover{
+ }
+ .classy:hover{
     background-color: brown;
-}
-
-.hovered{
+ }
+ 
+ 
+ .hovered{
     background-color: var(--activeColor);
     color: yellow;
-}
-
-.clear{
+ }
+ 
+ 
+ .clear{
    /* width: 50px;
     height: 20px;*/
     display: inline-flex;
-}
-
-#main{
+ }
+ 
+ 
+ #main{
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-#leftPanel{
+ }
+ 
+ 
+ #leftPanel{
     display: flex;
     flex-direction: column;
-}
-
-#colorPanel {
+ }
+ 
+ 
+ #colorPanel {
     display: flex;
     flex-direction: column;
     width:200px;
     height: 400px;
     align-items: center;
     justify-content: center;
-}
-
-.resBox{
+ }
+ 
+ 
+ .resBox{
     display: flex;
     flex-direction: row;
     justify-content: baseline;
     align-items: baseline;
-}
-
-#grid{
+ }
+ 
+ 
+ #grid{
     margin-left: 2em;
-}
-
-#control{
+ }
+ 
+ 
+ #control{
     border: black 1px solid;
     width: 400px;
     padding-bottom: 10px;
-}
-
-#resolution{
+ }
+ 
+ 
+ #resolution{
     max-width: 40px;
     display: inline-flex;
     max-height: 1em;
-}
-
-p {
+ }
+ 
+ 
+ p {
     display: flex;
-}
-.container {
+ }
+ .container {
     border: solid black 1px;
-}
-
-#colorPicker{
+ }
+ 
+ 
+ #colorPicker{
     display:flex;
     display: inline;
-}
-
-#pallette{
+ }
+ 
+ 
+ #pallette{
     border: black solid 1px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     width: 100px;
     height: 250px;
-}
-
-.colorButton{
-    height: 50px;
-    width: 50px;
-}
-
-#active{
+ }
+ 
+ 
+ .colorButton{
+    height: 40px;
+    width: 40px;
+    border-radius: 30px;
+    margin: 5px;
+    background-color: #FFFFFF;
+ }
+ 
+ 
+ #active{
     margin-top: 2em;
     width: 45px;
     height: 45px;
-    border: black solid 1px;
+    border: black solid 3px;
     margin-bottom: 25px;
-}
-
+ }
+ 
