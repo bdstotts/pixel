@@ -13,8 +13,16 @@ active = document.getElementById("active")
 activeValue = active.style.backgroundColor
 active.style.backgroundColor = colorPicker.value;
 document.documentElement.style.setProperty('--activeColor', activeValue);
+let brush1 = document.getElementsByClassName("brush")[0]
 //console.log(dimension)
+console.log(brush1)
+brush1.addEventListener("click", selected)
 
+function selected(){
+  brush1.classList.toggle("activeBrush");
+  console.log(brush1)
+  brush1 = brush1
+}
 
 //...................................................................................
 setCanvas();
@@ -27,7 +35,7 @@ function setCanvas() {
  dimension = document.getElementById("resolution").value;
  dimensionNumber = document.getElementById("resolution")
  //dimension = prompt("Enter a number 10-100 to select your etch-a-sketch resolution. Higher means better definition.");
- console.log(dimension)
+ //console.log(dimension)
 
 
 
@@ -38,7 +46,7 @@ function setCanvas() {
        dimension=100}
 
 
-       console.log(dimension)
+       //console.log(dimension)
 
 
    //rowBox
@@ -48,6 +56,7 @@ function setCanvas() {
    box = document.createElement("div");
    box.classList.add("box");
    box.textContent = "";
+   
 
 
    capture.appendChild(rowBox);
@@ -62,45 +71,67 @@ function setCanvas() {
 
 
    boxy = document.querySelectorAll("div.box");
+  boxyArr = Array.from(boxy);
+  console.log(boxy)
 
 
-//....................................................................
-
-
-
+  //....................................................................
 
 function change(el) {
- [].forEach.call(boxy, function(box) {
-   activeValue = active.style.backgroundColor;
-   //document.documentElement.style.setProperty('--activeColor', activeValue);
-   el.style.backgroundColor = activeValue;
- });
- }
+if(brush1.classList.contains("activeBrush")){
+    activeValue = active.style.backgroundColor;
+    el.style.backgroundColor = activeValue;
+    const index = boxyArr.indexOf(el)
+    console.log("index = "+ index)
+    if (!((index+1)% dimension)==0)
+         {el1 = index+1
+         console.log("el1(+1) index is " +el1)
+         boxyArr[el1].style.backgroundColor = activeValue;}
+         if (!((index)% dimension)==0)
+          {el3 = index-1
+          console.log("el3(-1) index is " +el3)
+          boxyArr[el3].style.backgroundColor = activeValue;}
+    el2 = index+parseInt(dimension)
+    console.log("el2(+dim) index is " +el2)
+    boxyArr[el2].style.backgroundColor = activeValue;
+    el4 = index-parseInt(dimension)
+    console.log("el4(-dim) index is " +el4)
+    boxyArr[el4].style.backgroundColor = activeValue;}
+
+  else{
+    activeValue = active.style.backgroundColor;
+    el.style.backgroundColor = activeValue;
+  }
+
+}
+
+
+
 //..............................................................
 
-
-// the function to add the mouseover event listener to each box
-[].forEach.call(boxy, function(box) {
-box.addEventListener("mousedown", function() {
-change(this);
-});
-});
-
-
-
-
-[].forEach.call(boxy, function(box) {
-box.addEventListener('mousemove', function(box) {
- if(box.buttons == 1) {
-  box.preventDefault();
-change(this);
+/*for(i=0;i<dimension^2;i++){
+  boxyArr[i].addEventListener('mousemove', function(i){
+    if (i.buttons ==1){
+      i.preventDefault();
+      change(this,boxyArr.indexOf);
+      console.log(boxyArr.indexOf(this))
+      console.log(boxyArr[i])
 }})
-});
+}*/
 
 
 
 
 
+//..............................................................
+for(i of boxyArr){  
+  i.addEventListener('mousemove', function(i){
+    if (i.buttons ==1){
+      i.preventDefault();
+      change(this,boxyArr.indexOf);
+      console.log(boxyArr.indexOf(this))
+  }})
+}
 
 //..............................................................
 // Borderize on initialization
@@ -272,30 +303,6 @@ colorTen.style.backgroundColor = colors[9]
 
 }
 
-
-/*colorOne.addEventListener("click", changeColor)
-colorTwo.addEventListener("click", changeColor)
-colorThree.addEventListener("click", changeColor)
-colorFour.addEventListener("click", changeColor)
-colorFive.addEventListener("click", changeColor)
-colorSix.addEventListener("click", changeColor)
-colorSeven.addEventListener("click", changeColor)
-colorEight.addEventListener("click", changeColor)
-colorNine.addEventListener("click", changeColor)
-colorTen.addEventListener("click", changeColor)
-
-
-
-
-function changeColor(){
- active.style.backgroundColor = this.style.backgroundColor;
-
-
-  //console.log(`color picker value: ${colorPicker.value}`)
- //console.log(`button value: ${this.style.backgroundColor}`)
- //colorPicker.value = this.style.backgroundColor;
-}
-*/
 //...........................................................To download--source: youtube.come/watch?v=V4dauky6UU8
 download = document.getElementById("download")
 

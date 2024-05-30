@@ -193,3 +193,15 @@
     margin-bottom: 25px;
  }
  
+ .brush{
+   height: 100px;
+   width: 100px;
+   border: black 1px solid;
+   background-image: url(plusBrush.png);
+   background-size:100px;
+   background-color: aliceblue;
+ }
+
+ .activeBrush{
+   border: rgb(67, 255, 67) solid 6px;
+ }
