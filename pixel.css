@@ -113,6 +113,16 @@
     align-items: center;
     justify-content: center;
  }
+
+ #brushBox{
+   display: flex;
+    flex-direction: column;
+    width:200px;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+
+ }
  
  
  .resBox{
